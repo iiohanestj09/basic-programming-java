@@ -39,13 +39,40 @@ public class a2_number {
 
         // Tambahan: KODE LITERALS
         int decimalInt = 200;
-        int binInt = 0b11001000;    // Prefixnya 0b  -> (0 dan 1)
+        int binInt = 0b11001000;     // Prefixnya 0b  -> (0 dan 1)
         int oktInt = 0310;           // Prefixnya 0   -> (0, 1, 2, 3, 4, 5, 6, 7)
-        int hexInt = 0xC8;          // Prefixnya 0x  -> (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F)
+        int hexInt = 0xC8;           // Prefixnya 0x  -> (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F)
 
         System.out.printf("%d %s | ", decimalInt, ((Object) decimalInt).getClass().getName());
         System.out.printf("%d %s | ", binInt, ((Object) binInt).getClass().getName());
         System.out.printf("%d %s | ", oktInt, ((Object) oktInt).getClass().getName());
-        System.out.printf("%d %s", hexInt, ((Object) hexInt).getClass().getName());
+        System.out.printf("%d %s\n", hexInt, ((Object) hexInt).getClass().getName());
+
+        // Tambahan: Underscore
+        int amount = 60_000_000;    // Tidak wajib, hanya utk mengetahui jumlah satuan, ribuan, ... utk memudahkan saat baca
+        System.out.println(amount);
+
+
+        /* Konversi Tipe Data Number
+        - Widening Casting (Otomatis): Aturan= byte -> short -> int -> long -> float -> double
+        - Narrowing Casting (Manual): Aturan= double -> float -> long -> int -> char -> short -> byte  */
+
+        // Widening Casting, dari kecil ke besar
+        byte wideByte  = 10;
+        short wideShort = wideByte;
+        int wideInt = wideShort;
+        long wideLong = wideInt;
+        float wideFloat = wideLong;
+        double wideDouble = wideFloat;
+
+        // Narrowing Casting, dari besar ke kecil
+        float narrowFloat = (float) 99.5762562438;
+        long narrowLong = (long) narrowFloat;
+        int narrowInt = (int) narrowLong;
+        short narrowShort = (short) narrowInt;
+        byte narrowByte = (byte) narrowShort;
+
+        System.out.printf("%d -> %d -> %d -> %d -> %f -> %f\n", wideByte, wideShort, wideInt, wideLong, wideFloat, wideDouble);
+        System.out.printf("%f -> %d -> %d -> %d -> %d\n", narrowFloat, narrowInt, narrowInt, narrowShort, narrowByte);
     }
 }
